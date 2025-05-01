@@ -1,0 +1,36 @@
+name: Render layout
+on: [push, workflow_dispatch]
+permissions:
+  contents: read
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        shell: bash -el {0}
+        working-directory: layouts
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          fetch-tags: true
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version-file: ".python-version"
+      - name: Install uv
+        uses: astral-sh/setup-uv@v5
+        with:
+          version: "0.7.2"
+      - name: Install dependencies
+        run: |
+          uv venv
+          uv sync --no-editable
+      - name: Render layouts
+        run: |
+          for file in */*.yml; do
+              if [[ -f "${file}" ]]; then
+                  echo "${file}"
+              fi
+          done

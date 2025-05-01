@@ -31,6 +31,12 @@ jobs:
         run: |
           for file in */*.yml; do
               if [[ -f "${file}" ]]; then
-                  echo "${file}"
+                  uv run keymap draw "${file}" > "${file%.*}.svg"
               fi
           done
+      - name: Upload SVG files
+        uses: actions/upload-artifact@v4
+        with:
+          name: layouts
+          path: */*.svg
+          if-no-files-found: warn

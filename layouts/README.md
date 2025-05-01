@@ -2,4 +2,4 @@
 
 ## silakka54/mammothb
 
-![](keymap.svg)
+![](silakka54/mammothb.svg)

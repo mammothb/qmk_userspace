@@ -21,6 +21,16 @@ combo_t key_combos[] = {
     COMBO(caps_word, CW_TOGG),
 };
 
+const char PROGMEM chordal_hold_layout[MATRIX_ROWS][MATRIX_COLS] =
+     LAYOUT(
+        'L', 'L', 'L', 'L', 'L', 'L', 'R', 'R', 'R', 'R', 'R', 'R',
+        'L', 'L', 'L', 'L', 'L', 'L', 'R', 'R', 'R', 'R', 'R', 'R',
+        'L', 'L', 'L', 'L', 'L', 'L', 'R', 'R', 'R', 'R', 'R', 'R',
+        'L', 'L', 'L', 'L', 'L', 'L', 'R', 'R', 'R', 'R', 'R', 'R',
+                       'L', 'L', 'L', 'R', 'R', 'R'
+    );
+
+
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [L_DEF] = LAYOUT(
         KC_GRV,  KC_1, KC_2,         KC_3,         KC_4,         KC_5,                      KC_6,              KC_7,         KC_8,         KC_9,         KC_0,    KC_MINS,
